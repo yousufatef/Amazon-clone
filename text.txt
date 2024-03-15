@@ -1,0 +1,19 @@
+[Amazon Clone]:
+
+1- [Backend]=>
+- Auth
+- Add Product to Cart
+- Payment with stripe
+
+
+2- [Frontend]
+
+[Components] => 
+    - Login Page
+    - Orders Page
+    - Add Cart Page
+
+[Header] =>
+    - Logo
+    - Search 
+    - Div => [SignIn, Orders, Cart]
