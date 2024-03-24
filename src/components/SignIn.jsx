@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -77,8 +76,8 @@ const SignIn = () => {
             Sign in
           </button>
           <h5 className="text-[12px] font-medium">
-            By continuing, you agree to Amazon's Fake Clone conditions of use
-            and privacy notice.
+            {`By continuing, you agree to Amazon's Fake Clone conditions of use
+            and privacy notice.`}
           </h5>
           <button
             type="submit"

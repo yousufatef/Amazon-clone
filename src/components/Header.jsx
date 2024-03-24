@@ -1,7 +1,13 @@
 import { Search, ShoppingCartCheckoutOutlined } from "@mui/icons-material";
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/GlobalState";
+import { auth } from "../utils/firebase";
 
 const Header = () => {
+  const { user } = useAuth();
+  const handleSignOut = () => {
+    auth.signOut();
+  };
   return (
     <div className="bg-[#131921] h-[60px] flex items-center sticky">
       <Link to="/">
@@ -19,9 +25,18 @@ const Header = () => {
         <Search className="bg-[#cd9042] !h-[24px] p-[5px]" />
       </div>
       <div className="flex justify-evenly items-center text-white">
-        <Link to="/login" className="flex flex-col mr-[10px] ml-[10px]">
-          <span className="text-[11px]">Hello Gust</span>
-          <span className="text-[13px] font-[800]">Sign In</span>
+        <Link
+          //to handle signOut routing
+          to={!user && "/login"}
+          onClick={handleSignOut}
+          className="flex flex-col mr-[10px] ml-[10px]"
+        >
+          <span className="text-[11px]">
+            Hello {user ? `${user.email}` : "Guest"}
+          </span>
+          <span className="text-[13px] font-[800]">
+            {user ? "Sign Out" : "Sign In"}
+          </span>
         </Link>
         <Link to="/orders" className="flex flex-col mr-[10px] ml-[10px]">
           <span className="text-[11px]">Returns</span>
