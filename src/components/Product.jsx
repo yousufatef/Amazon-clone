@@ -16,9 +16,9 @@ const Product = ({ id, title, price, image, rating }) => {
       },
     });
   };
-  console.log(cart)
+  console.log(cart);
   return (
-    <div className="flex flex-col p-5 justify-center items-center bg-white">
+    <div className="flex flex-col p-5 rounded-md justify-center items-center bg-white hover:translate-y-1 transition-all duration-300">
       <div>
         <img
           src={image}
@@ -37,13 +37,13 @@ const Product = ({ id, title, price, image, rating }) => {
             ))}
         </span>
         <h1 className="text-2xl font-bold">${price}</h1>
-        <h1 className="tracking-[0.9] leading-8 text-[19px] font-normal">
+        <h1 className="tracking-[0.9] leading-8 text-[17px] font-normal">
           {title}
         </h1>
       </div>
       <button
         onClick={handleAddToCart}
-        className="bg-[#cd9042] text-white font-semibold text-[18px] hover:opacity-[0.9] rounded-sm p-[5px] w-[35%] mb-5"
+        className="bg-[#cd9042] text-white font-semibold text-[18px] hover:opacity-[0.9] rounded-sm p-[5px] w-[35%] max-sm:w-[40%] mb-5"
       >
         Add to Cart
       </button>

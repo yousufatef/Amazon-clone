@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { auth } from "./utils/firebase";
 import { useAuth } from "./context/GlobalState";
 import Home from "./components/Home";
+import Checkout from "./components/Checkout";
 
 const App = () => {
   const { dispatch } = useAuth();
@@ -36,6 +37,14 @@ const App = () => {
           element={
             <>
               <Header /> <Home />
+            </>
+          }
+        />
+        <Route
+          path="/checkout"
+          element={
+            <>
+              <Header /> <Checkout />
             </>
           }
         />
