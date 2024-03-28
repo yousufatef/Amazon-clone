@@ -7,13 +7,15 @@ import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../utils/firebase";
 
 const SignIn = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
   const navigate = useNavigate();
 
   const handleSignIn = (e) => {
     e.preventDefault();
-    signInWithEmailAndPassword(auth, email, password).then((auth) => {
+    signInWithEmailAndPassword(auth, user.email, user.password).then((auth) => {
       if (auth) {
         navigate("/");
       }
@@ -21,7 +23,7 @@ const SignIn = () => {
   };
   const handleRegister = (e) => {
     e.preventDefault();
-    createUserWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(auth, user.email, user.password)
       .then((auth) => {
         if (auth) {
           navigate("/");
@@ -52,8 +54,8 @@ const SignIn = () => {
               type="email"
               id="email"
               className="w-[100%] h-[30px] text-[14px] p-2 border-[2px] rounded-sm border-black outline-none"
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
+              onChange={(e) => setUser({ ...user, email: e.target.value })}
+              value={user.email}
             />
           </div>
           <div className="flex flex-col ">
@@ -64,8 +66,8 @@ const SignIn = () => {
               type="password"
               id="password"
               className="w-[100%] h-[30px] text-[14px] p-2 border-[2px] rounded-sm border-black border- outline-none"
-              onChange={(e) => setPassword(e.target.value)}
-              value={password}
+              onChange={(e) => setUser({ ...user, password: e.target.value })}
+              value={user.password}
             />
           </div>
           <button

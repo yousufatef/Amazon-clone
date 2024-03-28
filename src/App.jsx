@@ -5,6 +5,7 @@ import NotFound from "./components/NotFound";
 import { useEffect } from "react";
 import { auth } from "./utils/firebase";
 import { useAuth } from "./context/GlobalState";
+import Home from "./components/Home";
 
 const App = () => {
   const { dispatch } = useAuth();
@@ -30,7 +31,14 @@ const App = () => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Header />} />
+        <Route
+          path="/"
+          element={
+            <>
+              <Header /> <Home />
+            </>
+          }
+        />
         <Route path="/login" element={<SignIn />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
